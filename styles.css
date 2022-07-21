@@ -1,6 +1,6 @@
 *{
-  margin = 0;
-  padding = 0;
+  margin : 0;
+  padding : 0;
 }
 body{
   display: flex;
@@ -59,6 +59,27 @@ a{
    position: relative;
    margin-left: 0px;
  }
+ .main-section code {
+   border-radius: 5px;
+  background-color: #ac9 !important;
+  border: 1px solid black !important;
+ }
  #main-doc{
  margin-top: 270px;
  }
+
+}
+code {
+  display: block;
+  text-align: left;
+  white-space: pre-line;
+  position: relative;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 2;
+  background-color: #f7f7f7;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
