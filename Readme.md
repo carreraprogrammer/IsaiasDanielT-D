@@ -10,6 +10,7 @@
 10. Additionally, the navbar should contain link (a) elements with the class of nav-link. There should be one for every element with the class main-section
 11. The header element in the #navbar must come before any link (a) elements in the navbar
 12. Each element with the class of nav-link should contain text that corresponds to the header text within each section (e.g. if you have a "Hello world" section/header, your navbar should have an element which contains the text "Hello world")
-When you click on a navbar element, the page should navigate to 13. the corresponding section of the #main-doc element (e.g. If you click on a .nav-link element that contains the text "Hello world", the page navigates to a section element with that id, and contains the corresponding header)
-On regular sized devices (laptops, desktops), the element with id="navbar" should be shown on the left side of the screen and should always be visible to the user
+13. When you click on a navbar element, the page should navigate to
+The corresponding section of the #main-doc element (e.g. 14. If you click on a .nav-link element that contains the text "Hello world", the page navigates to a section element with that id, and contains the corresponding header)
+15. On regular sized devices (laptops, desktops), the element with id="navbar" should be shown on the left side of the screen and should always be visible to the user
 Your technical documentation should use at least one media query
