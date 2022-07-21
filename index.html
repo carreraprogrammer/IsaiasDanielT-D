@@ -1,31 +1,124 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <link rel ="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
     <title>What's new In Python 3.8 || technical documentation</title>
   </head>
   <body>
-   <!-- HERE THE CONTENT STARTS -->
-
-    <main id= "main-doc">
-      <section id=" Assignment_expressionsclass" class = "main-section">
-        <header> Assignment expressions </header>
+    <!-- HERE THE CONTENT STARTS -->
+    <div class="navbar">
+      <nav id="navbar"></nav>
+    </div>
+    <main id="main-doc">
+      <section id=" Assignment_expressionsclass" class="main-section">
+        <header>Assignment expressions</header>
+        <p>
+          There is new syntax := that assigns values to variables as part of a
+          larger expression. It is affectionately known as “the walrus operator”
+          due to its resemblance to the eyes and tusks of a walrus.
+        </p>
       </section>
-      <section id= "Positional-only_parameters" class = "main-section">
-        <header> Positional-only parameters </header>
+      <section id="Positional-only_parameters" class="main-section">
+        <header>Positional-only parameters</header>
+        <p>
+          There is a new function parameter syntax / to indicate that some
+          function parameters must be specified positionally and cannot be used
+          as keyword arguments. This is the same notation shown by help() for C
+          functions annotated with Larry Hastings’ Argument Clinic tool.
+        </p>
+        <code>def f(a, b, /, c, d, *, e, f): print(a, b, c, d, e, f)</code>
+        <li>The following is a valid call</li>
+        <code>f(10, 20, 30, d=40, e=50, f=60) </code>
+        <li>However, these are invalid calls:</li>
       </section>
-      <section id= "Parallel_filesystem_cache_for_compiled_bytecode_files" class = "main-section">
+      <section
+        id="Parallel_filesystem_cache_for_compiled_bytecode_files"
+        class="main-section"
+      >
         <header>Parallel filesystem cache for compiled bytecode files</header>
+        <p>
+          The new PYTHONPYCACHEPREFIX setting (also available as -X
+          pycache_prefix) configures the implicit bytecode cache to use a
+          separate parallel filesystem tree, rather than the default __pycache__
+          subdirectories within each source directory.
+        </p>
+        <code
+          >class Counter(dict): def __init__(self, iterable=None, /, **kwds): #
+          Note "iterable" is a possible keyword argument
+        </code>
+        <li>See PEP 570 for a full description.</li>
       </section>
-      <section id= "Debug_build_uses_the_same_ABI_as_release_build" class = "main-section">
+      <section
+        id="Debug_build_uses_the_same_ABI_as_release_build"
+        class="main-section"
+      >
         <header>Debug build uses the same ABI as release build</header>
+        <p>
+          Python now uses the same ABI whether it’s built in release or debug
+          mode. On Unix, when Python is built in debug mode, it is now possible
+          to load C extensions built in release mode and C extensions built
+          using the stable ABI.
+        </p>
+        <p>
+          Release builds and debug builds are now ABI compatible: defining the
+          Py_DEBUG macro no longer implies the Py_TRACE_REFS macro, which
+          introduces the only ABI incompatibility. The Py_TRACE_REFS macro,
+          which adds the sys.getobjects() function and the PYTHONDUMPREFS
+          environment variable, can be set using the new ./configure
+          --with-trace-refs build option. (Contributed by Victor Stinner in
+          bpo-36465.)
+        </p>
+        <p>
+          On Unix, C extensions are no longer linked to libpython except on
+          Android and Cygwin. It is now possible for a statically linked Python
+          to load a C extension built using a shared library Python.
+          (Contributed by Victor Stinner in bpo-21536.)
+        </p>
+        <p>
+          On Unix, when Python is built in debug mode, import now also looks for
+          C extensions compiled in release mode and for C extensions compiled
+          with the stable ABI. (Contributed by Victor Stinner in bpo-36722.)
+        </p>
+        <code
+          >class Counter(dict): def __init__(self, iterable=None, /, **kwds): #
+          Note "iterable" is a possible keyword argument</code
+        >
       </section>
-      <section id="f-strings_support_=_for_self-documenting_expressions_and_debugging"class = "main-section">
-        <header>f-strings support = for self-documenting expressions and debugging</header>
+      <section
+        id="f-strings_support_=_for_self-documenting_expressions_and_debugging"
+        class="main-section"
+      >
+        <header>
+          f-strings support = for self-documenting expressions and debugging
+        </header>
+        <p>
+          Added an = specifier to f-strings. An f-string such as f'{expr=}' will
+          expand to the text of the expression, an equal sign, then the
+          representation of the evaluated expression. For example:
+        </p>
+        <code
+          >user = 'eric_idle' member_since = date(1975, 7, 31) f'{user=}
+          {member_since=}'</code
+        >
+        <li>
+          The usual f-string format specifiers allow more control over how the
+          result of the expression is displayed:
+        </li>
       </section>
-      <section  id= "PEP_578:_Python_Runtime_Audit_Hooks" class = "main-section">
+      <section id="PEP_578:_Python_Runtime_Audit_Hooks" class="main-section">
         <header>PEP 578: Python Runtime Audit Hooks</header>
+        <p>
+          The PEP adds an Audit Hook and Verified Open Hook. Both are available
+          from Python and native code, allowing applications and frameworks
+          written in pure Python code to take advantage of extra notifications,
+          while also allowing embedders or system administrators to deploy
+          builds of Python where auditing is always enabled.
+        </p>
+
+        <p>See PEP 578 for full details.</p>
+        <code>>>> print(f'{theta=} {cos(radians(theta))=:.3f}') </code>
+        <li>See PEP 578 for full details.</li>
       </section>
     </main>
   </body>
